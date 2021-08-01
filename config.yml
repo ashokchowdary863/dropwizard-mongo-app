@@ -1,0 +1,37 @@
+server:
+  rootPath: /*
+  registerDefaultExceptionMappers: false
+  applicationConnectors:
+    - type: http
+      port: 8080
+  adminConnectors:
+    - type: http
+      port: 8081
+
+
+
+logging:
+  level: INFO
+  loggers:
+    com.ashok: DEBUG
+  appenders:
+    - type: console
+      threshold: ALL
+      timeZone: IST
+      logFormat: "[%d{yyyy-MM-dd HH:mm:ss}] [%highlight{%-5level}] %blue([REQ-ID: %X{X-REQ-ID}]) %p %c - %m%n"
+      target: stdout
+
+swagger:
+  resourcePackage: com.ashok.resources
+  title: Swagger for App
+  version: 1.0
+  description: Swagger for App
+  contact: ashokrj863@gmail.com
+
+applicationName: MyDropwizardApp
+
+mongoConfig:
+  host: 127.0.0.1
+  port: 27017
+  database: dw_mongo_app
+  collection: users
